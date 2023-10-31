@@ -8,4 +8,4 @@ def pow(a, b):
     else:
         result = a ** b
 
-    return result
+    return abs(result)
