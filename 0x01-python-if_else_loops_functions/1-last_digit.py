@@ -4,7 +4,7 @@ number = random.randint(-10000, 10000)
 number = int(number)
 
 # calulate last digit
-if number >= 0:
+if number > 0:
     last_digit = number % 10
 else:
     last_digit = number % -10
