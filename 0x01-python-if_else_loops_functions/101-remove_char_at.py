@@ -6,3 +6,4 @@ def remove_char_at(str, n):
     else:
         copy = str[:-1]
     print(copy)
+    return copy
