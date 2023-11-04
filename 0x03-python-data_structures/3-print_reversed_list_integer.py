@@ -4,6 +4,3 @@ def print_reversed_list_integer(my_list=[]):
     for i in my_list:
         print(i)
 
-
-alist = [1, 2, 3, 4]
-print_reversed_list_integer(alist)
