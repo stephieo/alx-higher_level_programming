@@ -9,7 +9,7 @@ update_dictionary = __import__('7-update_dictionary').update_dictionary
 test= {}
 dir(test)
 a_dictionary = { 'language': "C", 'number': 89, 'track': "Low level" }
-new_dict = update_dictionary(a_dictionary, 'language', "Python")
+new_dict = update_dictionary(a_dictionary, 'name', "Monty")
 print_sorted_dictionary(new_dict)
 print("--")
 
