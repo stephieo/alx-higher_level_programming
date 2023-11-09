@@ -9,4 +9,4 @@ matrix = [
     [7, 8, 9]
 ]
 
-square_matrix_simple(matrix)
+print(square_matrix_simple(matrix))
