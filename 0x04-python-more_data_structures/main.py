@@ -4,9 +4,9 @@ square_matrix_simple = __import__('0-square_matrix_simple').square_matrix_simple
 
 
 matrix = [
-    [1, 3, 2],
-    [7, 9, 2],
-    [3, 1, 6]
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9]
 ]
 
 square_matrix_simple(matrix)
