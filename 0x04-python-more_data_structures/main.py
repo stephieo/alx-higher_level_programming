@@ -4,7 +4,16 @@ square_matrix_simple = __import__('0-square_matrix_simple').square_matrix_simple
 search_replace = __import__('1-search_replace').search_replace
 print_sorted_dictionary = __import__('6-print_sorted_dictionary').print_sorted_dictionary
 update_dictionary = __import__('7-update_dictionary').update_dictionary
+simple_delete = __import__('8-simple_delete').simple_delete
 
+
+a_dictionary = { 'language': "C", 'Number': 89, 'track': "Low", 'ids': [1, 2, 3] }
+new_dict = simple_delete(a_dictionary, 'track')
+print_sorted_dictionary(a_dictionary)
+print("--")
+print_sorted_dictionary(new_dict)
+
+print("--")
 
 test= {}
 dir(test)
