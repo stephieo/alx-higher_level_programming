@@ -7,7 +7,12 @@ update_dictionary = __import__('7-update_dictionary').update_dictionary
 simple_delete = __import__('8-simple_delete').simple_delete
 multiply_by_2 = __import__('9-multiply_by_2').multiply_by_2
 best_score = __import__('10-best_score').best_score
+multiply_list_map = __import__('11-multiply_list_map').multiply_list_map
 
+my_list = [1, 2, 3, 4, 6]
+new_list = multiply_list_map(my_list, 4)
+print(new_list)
+print(my_list)
 
 a_dictionary = {'John': 12, 'Alex': 8, 'Bob': 14, 'Mike': 14, 'Molly': 16}
 best_key = best_score(a_dictionary)
