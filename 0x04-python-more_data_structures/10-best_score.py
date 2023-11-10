@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def best_score(a_dictionary):
-    if a_dictionary == {} or a_dictionary == none:
+    if not a_dictionary:
         return none
     else:
         dict_list =  a_dictionary.items()
