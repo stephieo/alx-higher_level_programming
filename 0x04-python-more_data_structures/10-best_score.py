@@ -3,7 +3,7 @@ def best_score(a_dictionary):
     if not a_dictionary:
         return none
     else:
-        dict_list =  a_dictionary.items()
+        dict_list = a_dictionary.items()
         best_grade = 0
         for key, value in dict_list:
             if value > best_grade:
