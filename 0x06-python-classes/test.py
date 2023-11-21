@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-Square = __import__('3-square').Square
+Square = __import__('4-square').Square
 
 try:
     my_square_4 = Square(-89)
@@ -15,7 +15,11 @@ try:
 except Exception as e:
     print(e)
     
-my_square = Square(5)
-print(type(my_square))
-print(my_square.__dict__)
-print("Area: {}".format(my_square.area()))
+my_square = Square(89)
+print("Area: {} for size: {}".format(my_square.area(), my_square.size))
+
+try:
+    my_square.size = "5 feet"
+    print("Area: {} for size: {}".format(my_square.area(), my_square.size))
+except Exception as e:
+    print(e)
