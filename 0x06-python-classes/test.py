@@ -19,6 +19,8 @@ my_square = Square(3,(3,0))
 print("Area: {} for size: {}".format(my_square.area(), my_square.size))
 my_square.my_print()
 
+mysquare = Square(5, (3, 2)) 
+mysquare.my_print()
 try:
     my_square.size = "5 feet"
     print("Area: {} for size: {}".format(my_square.area(), my_square.size))
