@@ -5,7 +5,7 @@
 class Square:
     """class definition of Square"""
 
-    def __init__(self, squaresize=0, position=(0,0)):
+    def __init__(self, squaresize=0, position=(0, 0)):
         """initializes instances of Square
 
         Args:
@@ -41,7 +41,7 @@ class Square:
     def position(self):
         """tuple: returns cordinates of square"""
         return self.__position
-    
+
     @position.setter
     def position(self, value):
         if not isinstance(value, tuple):
@@ -60,6 +60,6 @@ class Square:
             print()
         else:
             for i in range(self.__size):
-                if self.__position[0]:
+                if self.__position[0] > 0:
                     print("_", end="")
                 print("{}".format('#' * self.__size))

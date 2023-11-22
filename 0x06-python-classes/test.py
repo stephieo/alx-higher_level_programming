@@ -15,7 +15,7 @@ try:
 except Exception as e:
     print(e)
     
-my_square = Square()
+my_square = Square(3,(3,0))
 print("Area: {} for size: {}".format(my_square.area(), my_square.size))
 my_square.my_print()
 
