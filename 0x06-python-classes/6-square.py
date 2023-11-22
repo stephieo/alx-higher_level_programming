@@ -61,6 +61,8 @@ class Square:
         """prints a visual representation of a Square object"""
         if self.__size == 0:
             print()
+        if self.__position[1] > 0:
+            print("{}".format(["" for i in range(self.__position[1])]))
         else:
             for i in range(self.__size):
                 if self.__position[0] > 0:
