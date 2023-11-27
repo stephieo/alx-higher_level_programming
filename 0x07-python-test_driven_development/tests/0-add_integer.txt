@@ -1,0 +1,46 @@
+Documentation for 0-add_integer.txt
+=================================
+
+Usage 
+=====
+
+first import module::
+    >>> add_integer= __import__('0-add_integer').add_integer
+
+add_integer adds two integers and returns their result::
+    >>> add_integer(2,3)
+    5
+    >>> add_integer(30 , -2)
+    28
+    >>> add_integer(-30 , -2)
+    -32
+    >>> add_integer(50.8, 5)
+    55
+    >>> add_integer(4, 9.7)
+    13
+    >>> add_integer(4.3, 19.7)
+    23
+
+default value of  second integer is 98::
+    >>> add_integer(2)
+    100
+
+both integers must be integers or floats::
+    >>> add_integer("hello", None)
+    Traceback (most recent call last):
+    ...
+    TypeError: a must be an integer
+    
+    >>> add_integer(5, None)
+    Traceback (most recent call last):
+    ...
+    TypeError: b must be an integer
+    >>> add_integer(float('inf'))
+    Traceback (most recent call last):
+        ...
+    OverflowError: cannot convert float infinity to integer
+    >>> add_integer(float('nan'))
+    Traceback (most recent call last):
+        ...
+    ValueError: cannot convert float NaN to integer
+
