@@ -1,0 +1,46 @@
+Print Square module
+===================
+
+Usage:
+======
+    >>> print_square = __import__('4-print_square').print_square
+
+size( length of the square) must be an integer::
+    >>> print_square("hullo")
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+  
+   
+    >>> print_square(-8.333)
+    Traceback (most recent call last):
+    ...
+    TypeError: size must be an integer
+
+size must be a positive number::
+    >>> print_square(-28)
+    Traceback (most recent call last):
+    ...
+    ValueError: size must be >= 0
+
+    >>> print_square(8)
+    ########
+    ########
+    ########
+    ########
+    ########
+    ########
+    ########
+    ########
+
+    >>> print_square(8.333)
+    ########
+    ########
+    ########
+    ########
+    ########
+    ########
+    ########
+    ########
+
+    >>> print_square(0)
