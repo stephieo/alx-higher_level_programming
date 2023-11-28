@@ -44,3 +44,6 @@ size must be a positive number::
     ########
 
     >>> print_square(0)
+    >>> print_square(2.35)
+    ##
+    ##
