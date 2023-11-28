@@ -8,16 +8,17 @@ contains only the add_integer() function
 """
 import doctest
 
+
 def add_integer(a, b=98):
     """adds two integers or floats
 
     Args:
         a (int): first number, can be a float too
         b (int, optional): second number, can be a float. Defaults to 98
-    
+
     Returns:
         sum of the arguments
-    
+
     Raises:
         TypeError: if inputs are not int or float
     """
@@ -25,7 +26,7 @@ def add_integer(a, b=98):
         raise TypeError("a must be an integer")
     if (not isinstance(b, int) and type(b) is not float):
         raise TypeError("b must be an integer")
-    
+
     return (int(a) + int(b))
 
 
