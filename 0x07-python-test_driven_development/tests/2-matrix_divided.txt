@@ -1,0 +1,50 @@
+the matrix_divided module
+=========================
+
+Usage:
+========
+    >>> matrix_divided = __import__("2-matrix_divided").matrix_divided
+
+Matrix is a  list of lists made of integers or floats::
+    >>> matrix_divided([1,2, 3], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix of integers or floats
+
+    >>> matrix_divided([[2, 3,"hello"], [8, 9, 3]], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix of integers or floats
+
+    >>> matrix_divided(None, 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix of integers or floats
+
+    >>> matrix_divided([[1, 4,None], [9,0, 3]], 3)
+    Traceback (most recent call last):
+        ...
+    TypeError: matrix must be a matrix of integers or floats
+
+Each row of the matrix must be of the same size::
+    >>> matrix_divided([[2, 3, 9], [2, 0 ,4, 5]], 2)
+    Traceback (most recent call last):
+        ...
+    TypeError: Each row of the matrix must have the same size
+
+div must be an integer or a float::
+    >>> matrix_divided([[2,3],[4,9]], "div")
+    Traceback (most recent call last):
+        ...
+    TypeError: div must be a number
+
+div cannot be equal to 0::
+    >>> matrix_divided([[2,3],[4,9]], 0)
+    Traceback (most recent call last):
+        ...
+    ZeroDivisionError: division by zero
+
+every element must be divided by div , to 2decimal places.
+The function should return a new matrix::
+    >>> matrix_divided([[4,6,8],[8, 12, 16]], 3)
+    [[1.33, 2.0, 2.67], [2.67, 4.0, 5.33]]
