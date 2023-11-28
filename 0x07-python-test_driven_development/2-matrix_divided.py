@@ -19,7 +19,7 @@ def matrix_divided(matrix, div):
         TypeError: if div is not int or float
         ZeroDivisionError: if div is 0
     """
-    if not matrix:
+    if not matrix or not isinstance(matrix, list):
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
     elif not all(isinstance(row, list) for row in matrix):
         raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
