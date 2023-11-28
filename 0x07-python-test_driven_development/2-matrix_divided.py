@@ -20,12 +20,12 @@ def matrix_divided(matrix, div):
         ZeroDivisionError: if div is 0
     """
     if not matrix:
-        raise TypeError("matrix must be a matrix of integers or floats")
+        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
     elif not all(isinstance(row, list) for row in matrix):
-        raise TypeError("matrix must be a matrix of integers or floats")
+        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
     elif not all(isinstance(elem, (int, float))
                  for row in matrix for elem in row):
-        raise TypeError("matrix must be a matrix of integers or floats")
+        raise TypeError("matrix must be a matrix (list of lists) of integers/floats")
 
     control = matrix[0]
     for row in matrix:
