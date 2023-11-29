@@ -7,13 +7,13 @@ def text_indentation(text):
 
     Args:
         text (str): the input string
-    
+
     Raises:
         TypeError: if text is not a string
     """
     if type(text) is not str:
         raise TypeError("text must be a string")
-    
+
     i = 0
     while i < len(text):
         print(text[i], end="")
@@ -23,7 +23,6 @@ def text_indentation(text):
             while i + 1 < len(text) and text[i + 1] == " ":
                 i += 1
         i += 1
-
 
 
 if __name__ == "__main__":
