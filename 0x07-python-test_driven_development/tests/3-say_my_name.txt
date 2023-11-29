@@ -20,7 +20,7 @@ First name and last name must  be strings::
 Will work with one or two arguments::
 
     >>> say_my_name("Sally")
-    Sally
+    My name is Sally
 
     >>> say_my_name()
     Traceback (most recent call last):
@@ -28,9 +28,9 @@ Will work with one or two arguments::
     TypeError: say_my_name() missing 1 required positional argument: 'first_name'
 
     >>> say_my_name("Billy", "Jean")
-    Billy Jean
+    My name is Billy Jean
 
 String can contain any characters::
     >>> say_my_name(" ", "*&$")
-      *&$
+    My name is   *&$
  
