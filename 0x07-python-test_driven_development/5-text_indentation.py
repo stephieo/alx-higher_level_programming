@@ -1,4 +1,4 @@
- #!/usr/bin/python3
+#!/usr/bin/python3
 """module contains a function to split text according to delimiters"""
 
 
