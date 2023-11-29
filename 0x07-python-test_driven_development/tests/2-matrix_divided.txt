@@ -60,6 +60,7 @@ div must be an integer or a float::
     Traceback (most recent call last):
         ...
     TypeError: div must be a number
+    
 div cannot be equal to 0::
     >>> matrix_divided([[2,3],[4,9]], 0)
     Traceback (most recent call last):
