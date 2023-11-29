@@ -60,7 +60,6 @@ div must be an integer or a float::
     Traceback (most recent call last):
         ...
     TypeError: div must be a number
-
 div cannot be equal to 0::
     >>> matrix_divided([[2,3],[4,9]], 0)
     Traceback (most recent call last):
@@ -71,3 +70,5 @@ every element must be divided by div , to 2decimal places.
 The function should return a new matrix::
     >>> matrix_divided([[4,6,8],[8, 12, 16]], 3)
     [[1.33, 2.0, 2.67], [2.67, 4.0, 5.33]]
+    >>> matrix_divided([[1, 2, 3], [4, 5, 6]], float('inf'))
+    [[0.0, 0.0, 0.0], [0.0, 0.0, 0.0]]
