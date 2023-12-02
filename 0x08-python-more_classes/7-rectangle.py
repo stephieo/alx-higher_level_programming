@@ -72,9 +72,9 @@ class Rectangle:
         display = ""
         for i in range(self.__height):
             if i != self.__height - 1:
-                display += "{}\n".format(Rectangle.print_symbol * self.__width)
+                display += "{}\n".format(self.print_symbol * self.__width)
             else:
-                display += "{}".format(Rectangle.print_symbol * self.__width)
+                display += "{}".format(self.print_symbol * self.__width)
         return display
 
     def __repr__(self):
