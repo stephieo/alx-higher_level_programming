@@ -1,0 +1,69 @@
+`BaseGeometry` module
+=====================
+
+Usage:
+======
+
+    >>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
+
+TestCase 1:
+check for docstrings
+
+::
+
+    >>> modstring = __import__('7-base_geometry').__doc__
+    >>> len(modstring) > 1
+    True
+    >>> classtring = __import__('7-base_geometry').BaseGeometry.__doc__
+    >>> len(classtring) > 1
+    True
+    >>> classtring = __import__('7-base_geometry').BaseGeometry.area.__doc__
+    >>> len(classtring) > 1
+    True
+    >>> classtring = __import__('7-base_geometry').BaseGeometry.integer_validator.__doc__
+    >>> len(classtring) > 1
+    True
+   
+    
+    
+TestCase 2:
+check for exeption in `area()`
+
+::
+
+    >>> x = BaseGeometry()
+    >>> x.area()
+    Traceback (most recent call last):
+    ...
+    Exception: area() is not implemented
+
+check that exceptions in integer_validator work:
+
+TestCase 3:
+-correct input
+
+::
+
+    >>> y = BaseGeometry()
+    >>> y.integer_validator("square", 4)
+
+TestCase 4:
+-string instead of integer
+
+::
+
+    >>> y.integer_validator("square", "four")
+    Traceback (most recent call last):
+    ...
+    TypeError: square must be an integer
+
+TestCase 5:
+-negative integer
+
+::
+
+    >>> y.integer_validator("square", -8)
+    Traceback (most recent call last):
+    ...
+    ValueError: square must be greater than 0
+
