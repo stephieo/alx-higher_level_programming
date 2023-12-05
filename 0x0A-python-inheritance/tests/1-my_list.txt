@@ -1,0 +1,52 @@
+`My List` module
+==================
+
+Usage:
+======
+    >>> MyList = __import__('1-my_list').MyList
+    >>> my_list = MyList()
+
+Testcase1:
+must append correctly and print correctly
+
+::
+
+    >>> my_list.append(0)
+    >>> my_list.append(-1)
+    >>> my_list.append(13)
+    >>> print(my_list)
+    [0, -1, 13]
+    >>> my_list.append(6)
+    >>> my_list.append(2)
+    >>> my_list.append(12)
+    >>> print(my_list)
+    [0, -1, 13, 6, 2, 12]
+
+
+Testcase2:
+sorts a list correctly(positive, negative, mixed, with 0)
+
+::
+
+    >>> my_list.print_sorted()
+    [-1, 0, 2, 6, 12, 13]
+    >>> print(my_list)
+    [-1, 0, 2, 6, 12, 13]
+
+Testcase3:
+check inheritance
+
+::
+
+    >>> issubclass(MyList,list)
+    True
+    >>> isinstance(my_list, list)
+    True
+
+Testcase4:
+check module, class and method docstrings
+
+::
+
+    >>> dir()
+    ['MyList', '__builtins__', '__name__', 'my_list']
