@@ -59,3 +59,19 @@ check  print_sorted is with empty list
     >>> list1 = MyList()
     >>> list1.print_sorted()
     []
+
+Testcase6:
+check  `print_sorted` returns new list
+
+::
+
+    >>> list2 = MyList()
+    >>> list2.append(8)
+    >>> list2.append(5)
+    >>> list2.append(1)
+    >>> list2.append(2)
+    >>> a = list2
+    >>> b = list2.print_sorted()
+    [1, 2, 5, 8]
+    >>> a is b
+    False
