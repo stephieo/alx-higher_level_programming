@@ -50,3 +50,12 @@ check module, class and method docstrings
 
     >>> dir()
     ['MyList', '__builtins__', '__name__', 'my_list']
+
+Testcase5:
+check  print_sorted is with empty list
+
+::
+
+    >>> list1 = MyList()
+    >>> list1.print_sorted()
+    []
