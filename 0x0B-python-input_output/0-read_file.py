@@ -6,3 +6,6 @@ def read_file(filename=""):
     """opens a file and reads it"""
     with open(filename, encoding='utf-8') as f:
         print(f.read())
+
+
+read_file("my_file_0.txt")
