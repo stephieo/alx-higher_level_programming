@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """ module contains class definition for `Rectangle` subclass"""
-from base import Base
+from models.base import Base
 
 
 class Rectangle(Base):
@@ -8,6 +8,19 @@ class Rectangle(Base):
     def __init__(self, width, height, x=0, y=0, id=None):
         """contructor for new instances"""
         super().__init__(id)
+
+        for input in (width, height, x, y):
+            if type(input) is not int:
+                raise TypeError(f"{input} must be an integer")
+        
+        for i in (width, height):
+            if i <= 0:
+                raise ValueError(f"{i} must be > 0")
+
+        for i in (x, y):
+            if i < 0:
+                raise ValueError(f"{i} must be >= 0")
+
         self.__width = width
         self.__height = height
         self.__x = x
@@ -34,7 +47,7 @@ class Rectangle(Base):
     @property
     def x(self):
         """getter and setter methods for `x`"""
-        return self.___x
+        return self.__x
 
     @x.setter
     def x(self, value):
@@ -43,19 +56,12 @@ class Rectangle(Base):
     @property
     def y(self):
         """getter and setter methods for `y`"""
-        return self.___y
+        return self.__y
 
     @y.setter
     def y(self, value):
         self.__y = value
 
-
-
-r1 = Rectangle(10, 2)
-print(r1.id)
-
-r2 = Rectangle(2, 10)
-print(r2.id)
-
-r3 = Rectangle(10, 2, 0, 0, 12)
-print(r3.id)
+    def __del__(self):
+        """destructor method for deleted objects"""
+        super().__del__

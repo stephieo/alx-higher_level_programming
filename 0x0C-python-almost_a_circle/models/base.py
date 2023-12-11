@@ -12,3 +12,6 @@ class Base:
         else:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
+
+    def __del__(self):
+        Base.__nb_objects -= 1

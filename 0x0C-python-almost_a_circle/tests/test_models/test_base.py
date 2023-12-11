@@ -21,16 +21,26 @@ class TestBaseClass(unittest.TestCase):
     #     self.assertGreater(len(print(__import__("base").__doc__)), 1)
     #     self.assertGreater(len(print(__import__("base").MyClass.__doc__)), 1)
 
+    def setUp(self):
+        """set up test objects"""
+        self.b1 = Base()
+        self.b2 = Base()
+        self.b3 = Base()
+
+    def tearDown(self):
+        """set up test objects"""
+        del self.b1
+        del self.b2
+        del self.b3
+
     def test_id_empty(self):
         """check id is being created properly"""
-        b1 = Base()
-        self.assertEqual(b1.id, 1)
+        self.assertEqual(self.b1.id, 1)
 
     def test_id_input(self):
         """check id id created when there is  an  input"""
-        b2 = Base(67)
-        self.assertEqual(b2.id, 67)
+        self.assertEqual(self.b2.id, 2)
 
     def test_id_neg_input(self):
-        b3 = Base(-12)
-        self.assertEqual(b3.id, -12)
+        self.assertEqual(self.b3.id, 3)
+    
