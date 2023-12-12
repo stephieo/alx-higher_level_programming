@@ -69,6 +69,16 @@ class TestRectangleInstantiation(unittest.TestCase):
         self.assertEqual(Rectangle(2, 4, 18, 20, 68).id, 68)
         self.assertEqual(Rectangle(1, 2, 9, 10, 34).id, 34)
 
+    def test_input_validation(self):
+        """check that each input (arguments 1 - 5) must be positive integers """
+        with self.assertRaises(TypeError):
+            temp = Rectangle("one", 2, 9, 3)
+        with self.assertRaises(TypeError):
+            temp = Rectangle(1, "2", 9, 5)
+        with self.assertRaises(ValueError):
+            temp = Rectangle(19, 4, -4, 8)
+        with self.assertRaises(ValueError):
+            temp = Rectangle(11, 0, 9, 3, 5)
 
     # def test_id_creation(self):
 
@@ -123,17 +133,7 @@ class TestRectangleInstantiation(unittest.TestCase):
         self.r4.y = 92
         self.assertEqual(self.r4.y, 92)
 
-    def test_input_validation(self):
-        """check that inputs amust be positive integers"""
-        with self.assertRaises(TypeError):
-            temp = Rectangle("one", 2, 9, 3)
-        with self.assertRaises(TypeError):
-            temp = Rectangle(1, 2, (8, 4), 5)
-        with self.assertRaises(ValueError):
-            temp = Rectangle(19, 4, -4, 8)
-        with self.assertRaises(ValueError):
-            temp = Rectangle(11, 0, 9, 3)
-        
+          
     def test_area(self):
         """checks the output of area( with various inputs)"""
         self.assertEqual(self.r2.area(), 20)
