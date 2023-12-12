@@ -56,14 +56,17 @@ class TestRectangleInstantiation(unittest.TestCase):
 
     def test_three_args(self):
         """checks the instantiation and input validation of three args to Rectangle"""
+        self.assertEqual(Rectangle(12, 12, 3).x, 3)
         self.assertEqual(Rectangle(1, 2, 9).x, 9)
 
     def test_four_args(self):
         """checks the instantiation and input validation of four args to Rectangle"""
+        self.assertEqual(Rectangle(2, 4, 18, 20).y, 20)
         self.assertEqual(Rectangle(1, 2, 9, 10).y, 10)
 
     def test_five_args(self):
         """checks the instantiation and input validation of five args to Rectangle"""
+        self.assertEqual(Rectangle(2, 4, 18, 20, 68).id, 68)
         self.assertEqual(Rectangle(1, 2, 9, 10, 34).id, 34)
 
 
