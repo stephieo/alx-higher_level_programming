@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 """test module for `Rectangle` class"""
 import unittest
+from unittest.mock import patch
+from models.base import Base
 from models.rectangle import Rectangle
 
 class TestRectangleClass(unittest.TestCase):
@@ -15,15 +17,16 @@ class TestRectangleClass(unittest.TestCase):
             -y✅
         -check that default arguments are working✅
         -check argument validation of:
-            -width
-            -height
+            -width -x
+            -height  -y
+        -check return value of area() with all valid inputs
     """
     def setUp(self):
         """set up test objects for TestRectangleClass"""
         self.r1 = Rectangle(10, 2)
         self.r2 = Rectangle(2, 10, 0, 0, -16)
         self.r3 = Rectangle(2, 18, 0, 8)
-        self.r4 = Rectangle(10, 2, 5, 6, 12)
+        self.r4 = Rectangle(30, 2, 5, 6, 12)
 
     def tearDown(self):
         """tear down test objects"""
@@ -95,6 +98,35 @@ class TestRectangleClass(unittest.TestCase):
         with self.assertRaises(ValueError):
             temp = Rectangle(11, 0, 9, 3)
         
+    def test_area(self):
+        """checks the output of area( with various inputs)"""
+        self.assertEqual(self.r2.area(), 20)
+        self.assertEqual(self.r3.area(), 36)
+        self.assertEqual(self.r4.area(), 60)
+
+    def test_display(self):
+        """checks that the visual of the rectangle matches its measurements"""
+        r2_output = "##\n##\n##\n##\n##\n##\n##\n##\n##\n##\n"
+        self.assertEqual(self.r2.display(), r2_output)
+
+        r4_output = "##############################\n##############################\n" 
+        self.assertEqual(self.r4.display(), r4_output)
+
+    @patch('builtins.print')
+    def test_str_method(self, mock_output):
+        """checks that the output of `str()` matches the requirements"""
+        r1_str = f"[Rectangle] ({self.r1.id}) {self.r1.x}/{self.r1.y} - {self.r1.width}/{self.r1.height}"
+        output_of_str = str(self.r1)
+        print(self.r1)
+        self.assertEqual(output_of_str, r1_str)
+        mock_output.assert_called_once_with(self.r1)
+
+        r3_str = f"[Rectangle] ({self.r3.id}) {self.r3.x}/{self.r3.y} - {self.r3.width}/{self.r3.height}"
+        output_of_str = str(self.r3)
+        print(self.r3)
+        self.assertEqual(output_of_str, r3_str)
+        self.assertEqual(output_of_str, r3_str)
+        mock_output.assert_called_with(self.r3)
 
     if __name__ == "__main__":
         unittest.main()
