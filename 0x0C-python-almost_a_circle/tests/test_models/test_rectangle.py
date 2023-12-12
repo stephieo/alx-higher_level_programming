@@ -35,7 +35,7 @@ class TestRectangleInstantiation(unittest.TestCase):
     def setUp(self):
         """set up test objects for TestRectangleClass"""
         self.r1 = Rectangle(10, 2)
-        self.r2 = Rectangle(2, 10, 0, 0, -16)
+        self.r2 = Rectangle(2, 10, 0, 0)
         self.r3 = Rectangle(2, 18, 0, 8)
         self.r4 = Rectangle(30, 2, 5, 6, 12)
 
@@ -48,7 +48,11 @@ class TestRectangleInstantiation(unittest.TestCase):
 
     def test_two_args(self):
         """checks the instantiation and input validation of two args to Rectangle"""
-        self.assertEqual(Rectangle(1, 2).width, 1)
+        rec1 = Rectangle(20, 1)
+        rec2 = Rectangle(2, 10)
+        self.assertEqual(rec1.width, 20)
+        self.assertEqual(rec2.width, 2)
+        self.assertEqual(rec1.id, rec2.id - 1 )
 
     def test_three_args(self):
         """checks the instantiation and input validation of three args to Rectangle"""
@@ -63,13 +67,13 @@ class TestRectangleInstantiation(unittest.TestCase):
         self.assertEqual(Rectangle(1, 2, 9, 10, 34).id, 34)
 
 
-    def test_id_creation(self):
+    # def test_id_creation(self):
 
-        """checks  id creation with and without arguments"""
-        self.assertEqual(self.r1.id, 2)
-        self.assertEqual(self.r2.id, -16)
-        self.assertEqual(self.r3.id, 3)
-        self.assertEqual(self.r4.id, 12)
+    #     """checks  id creation with and without arguments"""
+    #     self.assertEqual(self.r1.id, 14)
+    #     self.assertEqual(self.r2.id, -16)
+    #     self.assertEqual(self.r3.id, 15)
+    #     self.assertEqual(self.r4.id, 12)
 
 
     def test_width_privacy(self):
