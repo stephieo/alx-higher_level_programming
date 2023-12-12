@@ -5,8 +5,19 @@ from unittest.mock import patch
 from models.base import Base
 from models.rectangle import Rectangle
 
-class TestRectangleClass(unittest.TestCase):
-    """test case for the functionality of the `Rectangle` subclass"""
+class TestRectangleMethods(unittest.TestCase):
+    """tests the simple methods area, display, __str__"""
+
+
+
+class TestRectangleInputvalidation(unittest.TestCase):
+    """tests the input validation in creation of Rectangle object"""
+    """ - seperate tests for each  argument being invalid"""
+
+class TestRectangleArgumentPrivacy(unittest.TestCase):
+    """ testing the privacy, getters and setters of arguments"""
+class TestRectangleInstantiation(unittest.TestCase):
+    """test case for instantiation of the `Rectangle` object"""
     """check:
         - id creation✅
         -proper output from 0 - 5 arguments, errors for >5 args
@@ -35,6 +46,23 @@ class TestRectangleClass(unittest.TestCase):
         del self.r3
         del self.r4
 
+    def test_two_args(self):
+        """checks the instantiation and input validation of two args to Rectangle"""
+        self.assertEqual(Rectangle(1, 2).width, 1)
+
+    def test_three_args(self):
+        """checks the instantiation and input validation of three args to Rectangle"""
+        self.assertEqual(Rectangle(1, 2, 9).x, 9)
+
+    def test_four_args(self):
+        """checks the instantiation and input validation of four args to Rectangle"""
+        self.assertEqual(Rectangle(1, 2, 9, 10).y, 10)
+
+    def test_five_args(self):
+        """checks the instantiation and input validation of five args to Rectangle"""
+        self.assertEqual(Rectangle(1, 2, 9, 10, 34).id, 34)
+
+
     def test_id_creation(self):
 
         """checks  id creation with and without arguments"""
@@ -42,6 +70,7 @@ class TestRectangleClass(unittest.TestCase):
         self.assertEqual(self.r2.id, -16)
         self.assertEqual(self.r3.id, 3)
         self.assertEqual(self.r4.id, 12)
+
 
     def test_width_privacy(self):
         """checks that width is not publically accessible"""
