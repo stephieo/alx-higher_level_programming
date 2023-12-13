@@ -15,15 +15,17 @@ class Rectangle(Base):
         """
         super().__init__(id)
 
-        for index, value in enumerate((width, height, x, y)):
-            if type(input) is not int and index <= 1:
+        for index, value in enumerate((width, height)):
+            if type(value) is not int:
                 raise TypeError(
                     f"{'width' if index == 0 else 'height'}"
                     f" must be an integer"
                 )
-            else:
+
+        for index, value in enumerate((x, y)):
+            if type(value) is not int:
                 raise TypeError(
-                    f"{'x' if index == 2 else 'y'} "
+                    f"{'x' if index == 0 else 'y'} "
                     f"must be an integer"
                 )
 
@@ -35,7 +37,7 @@ class Rectangle(Base):
                 )
 
         for index, value in enumerate((x, y)):
-            if i < 0:
+            if value < 0:
                 raise ValueError(
                     f"{'width' if i == 0 else 'height'} "
                     f"must be >= 0"
