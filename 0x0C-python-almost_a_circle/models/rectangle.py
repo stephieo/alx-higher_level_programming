@@ -29,7 +29,7 @@ class Rectangle(Base):
                     f"must be an integer"
                 )
 
-        for i, value in enumerate((width, height)):
+        for index, value in enumerate((width, height)):
             if value <= 0:
                 raise ValueError(
                     f"{'width' if index == 0 else 'height'} "
