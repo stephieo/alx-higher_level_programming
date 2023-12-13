@@ -27,15 +27,34 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(self.B.area(), 20)
         self.assertEqual(self.C.area(), 57)
         self.assertEqual(self.D.area(), 60)
-
-    def test_display(self):
-        """checks that the visual of the rectangle matches its measurements"""
-        B_output = "##\n##\n##\n##\n##\n##\n##\n##\n##\n##\n"
-        self.assertEqual(self.B.display(), B_output)
-
-        D_output = "##############################\n##############################\n" 
-        self.assertEqual(self.D.display(), D_output)
     
+    @patch('builtins.print')
+    def test_display(self, mock_display):
+        """checks that the visual of the rectangle matches its measurements"""
+        B_output = """
+        ##
+        ##
+        ##
+        ##
+        ##
+        ##
+        ##
+        ##
+        ##
+        ##
+        """
+        self.B.display()
+        mock_display.assert_called()
+        self.assertEqual(mock_display.call_count, 10)
+
+        D_output = """
+        ##############################
+        ##############################
+        """ 
+        self.D.display()
+        mock_display.assert_called()
+        self.assertEqual(mock_display.call_count, 12) #checks total no of times mock is called
+        
     @patch('builtins.print')
     def test_str_method(self, mock_output):
         """checks that the output of `str()` matches the requirements"""

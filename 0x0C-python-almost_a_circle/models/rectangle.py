@@ -106,10 +106,8 @@ class Rectangle(Base):
 
     def display(self):
         """prints out a visual of a rectangle object"""
-        image = ""
         for x in range(self.__height):
-            image += f"{'#' * self.__width}\n"
-        return image
+            print(f"{'#' * self.__width}")
 
     def __str__(self):
         """prints out a string representation of a Rectangle object"""
