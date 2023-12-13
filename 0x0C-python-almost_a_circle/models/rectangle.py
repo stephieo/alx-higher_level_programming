@@ -15,17 +15,31 @@ class Rectangle(Base):
         """
         super().__init__(id)
 
-        for input in (width, height, x, y):
-            if type(input) is not int:
-                raise TypeError(f"{input} must be an integer")
+        for index, value in enumerate((width, height, x, y)):
+            if type(input) is not int and index <= 1:
+                raise TypeError(
+                    f"{'width' if index == 0 else 'height'}"
+                    f" must be an integer"
+                )
+            else:
+                raise TypeError(
+                    f"{'x' if index == 2 else 'y'} "
+                    f"must be an integer"
+                )
 
-        for i in (width, height):
-            if i <= 0:
-                raise ValueError(f"{i} must be > 0")
+        for i, value in enumerate((width, height)):
+            if value <= 0:
+                raise ValueError(
+                    f"{'width' if i == 0 else 'height'} "
+                    f"must be > 0"
+                )
 
-        for i in (x, y):
+        for index, value in enumerate((x, y)):
             if i < 0:
-                raise ValueError(f"{i} must be >= 0")
+                raise ValueError(
+                    f"{'width' if i == 0 else 'height'} "
+                    f"must be >= 0"
+                )
 
         self.__width = width
         self.__height = height
