@@ -32,14 +32,14 @@ class Rectangle(Base):
         for i, value in enumerate((width, height)):
             if value <= 0:
                 raise ValueError(
-                    f"{'width' if i == 0 else 'height'} "
+                    f"{'width' if index == 0 else 'height'} "
                     f"must be > 0"
                 )
 
         for index, value in enumerate((x, y)):
             if value < 0:
                 raise ValueError(
-                    f"{'x' if i == 0 else 'y'} "
+                    f"{'x' if index == 0 else 'y'} "
                     f"must be >= 0"
                 )
 
@@ -56,9 +56,9 @@ class Rectangle(Base):
     @width.setter
     def width(self, value):
         if type(value) is not int:
-                raise TypeError(f"width must be an integer")
+            raise TypeError(f"width must be an integer")
         if value <= 0:
-                raise ValueError(f"width must be > 0")
+            raise ValueError(f"width must be > 0")
         self.__width = value
 
     @property
@@ -69,9 +69,9 @@ class Rectangle(Base):
     @height.setter
     def height(self, value):
         if type(value) is not int:
-                raise TypeError(f"height must be an integer")
+            raise TypeError(f"height must be an integer")
         if value <= 0:
-                raise ValueError(f"height must be > 0")
+            raise ValueError(f"height must be > 0")
         self.__height = value
 
     @property
@@ -82,9 +82,9 @@ class Rectangle(Base):
     @x.setter
     def x(self, value):
         if type(value) is not int:
-                raise TypeError(f"x must be an integer")
+            raise TypeError(f"x must be an integer")
         if value < 0:
-                raise ValueError(f"x must be >= 0")
+            raise ValueError(f"x must be >= 0")
         self.__x = value
 
     @property
@@ -95,9 +95,9 @@ class Rectangle(Base):
     @y.setter
     def y(self, value):
         if type(value) is not int:
-                raise TypeError(f"y must be an integer")
+            raise TypeError(f"y must be an integer")
         if value < 0:
-                raise ValueError(f"y must be >= 0")
+            raise ValueError(f"y must be >= 0")
         self.__y = value
 
     def area(self):
