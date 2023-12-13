@@ -7,20 +7,50 @@ from models.rectangle import Rectangle
 
 class TestRectangleMethods(unittest.TestCase):
     """tests the simple methods area, display, __str__"""
+
+    def setUp(self):
+        """set up test objects for TestRectangleMethods"""
+        self.A = Rectangle(20, 3)
+        self.B = Rectangle(2, 10, 1, 1)
+        self.C = Rectangle(3, 19, 1, 9)
+        self.D = Rectangle(30, 2, 6, 7, 13)
+
+    def tearDown(self):
+        """tear down test objects"""
+        del self.A
+        del self.B
+        del self.C
+        del self.D
+
     def test_area(self):
         """checks the output of area( with various inputs)"""
-        self.assertEqual(self.r2.area(), 20)
-        self.assertEqual(self.r3.area(), 36)
-        self.assertEqual(self.r4.area(), 60)
+        self.assertEqual(self.B.area(), 20)
+        self.assertEqual(self.C.area(), 57)
+        self.assertEqual(self.D.area(), 60)
 
     def test_display(self):
         """checks that the visual of the rectangle matches its measurements"""
-        r2_output = "##\n##\n##\n##\n##\n##\n##\n##\n##\n##\n"
-        self.assertEqual(self.r2.display(), r2_output)
+        B_output = "##\n##\n##\n##\n##\n##\n##\n##\n##\n##\n"
+        self.assertEqual(self.B.display(), B_output)
 
-        r4_output = "##############################\n##############################\n" 
-        self.assertEqual(self.r4.display(), r4_output)
+        D_output = "##############################\n##############################\n" 
+        self.assertEqual(self.D.display(), D_output)
+    
+    @patch('builtins.print')
+    def test_str_method(self, mock_output):
+        """checks that the output of `str()` matches the requirements"""
+        A_str = f"[Rectangle] ({self.A.id}) {self.A.x}/{self.A.y} - {self.A.width}/{self.A.height}"
+        output_of_str = str(self.A)
+        print(self.A)
+        self.assertEqual(output_of_str, A_str)
+        mock_output.assert_called_once_with(self.A)
 
+        C_str = f"[Rectangle] ({self.C.id}) {self.C.x}/{self.C.y} - {self.C.width}/{self.C.height}"
+        output_of_str = str(self.C)
+        print(self.C)
+        self.assertEqual(output_of_str, C_str)
+        self.assertEqual(output_of_str, C_str)
+        mock_output.assert_called_with(self.C)
 
 class TestRectangleInputvalidation(unittest.TestCase):
     """tests the input validation in creation of Rectangle object"""
@@ -106,13 +136,12 @@ class TestRectangleInstantiation(unittest.TestCase):
         self.assertEqual(Rectangle(1, 2, 9, 10, 34).id, 34)
 
 
-    # def test_id_creation(self):
+    def test_id_creation(self):
 
-    #     """checks  id creation with and without arguments"""
-    #     self.assertEqual(self.r1.id, 14)
-    #     self.assertEqual(self.r2.id, -16)
-    #     self.assertEqual(self.r3.id, 15)
-    #     self.assertEqual(self.r4.id, 12)
+        """checks  id creation with and without arguments"""
+        self.assertEqual(self.r2.id, self.r1.id + 1)
+        self.assertEqual(self.r3.id, self.r2.id + 1)
+        self.assertEqual(self.r4.id, 12)
 
 
     def test_width_privacy(self):
@@ -162,21 +191,7 @@ class TestRectangleInstantiation(unittest.TestCase):
           
     
 
-    @patch('builtins.print')
-    def test_str_method(self, mock_output):
-        """checks that the output of `str()` matches the requirements"""
-        r1_str = f"[Rectangle] ({self.r1.id}) {self.r1.x}/{self.r1.y} - {self.r1.width}/{self.r1.height}"
-        output_of_str = str(self.r1)
-        print(self.r1)
-        self.assertEqual(output_of_str, r1_str)
-        mock_output.assert_called_once_with(self.r1)
-
-        r3_str = f"[Rectangle] ({self.r3.id}) {self.r3.x}/{self.r3.y} - {self.r3.width}/{self.r3.height}"
-        output_of_str = str(self.r3)
-        print(self.r3)
-        self.assertEqual(output_of_str, r3_str)
-        self.assertEqual(output_of_str, r3_str)
-        mock_output.assert_called_with(self.r3)
+    
 
     if __name__ == "__main__":
         unittest.main()

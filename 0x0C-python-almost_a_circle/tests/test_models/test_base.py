@@ -24,7 +24,7 @@ class TestBaseClass(unittest.TestCase):
     def setUp(self):
         """set up test objects"""
         self.b1 = Base()
-        self.b2 = Base()
+        self.b2 = Base(21)
         self.b3 = Base()
 
     def tearDown(self):
@@ -39,8 +39,8 @@ class TestBaseClass(unittest.TestCase):
 
     def test_id_input(self):
         """check id id created when there is  an  input"""
-        self.assertEqual(self.b2.id, 2)
+        self.assertEqual(self.b2.id, 21)
 
     def test_id_neg_input(self):
-        self.assertEqual(self.b3.id, 3)
+        self.assertEqual(self.b3.id, self.b1.id + 1)
     

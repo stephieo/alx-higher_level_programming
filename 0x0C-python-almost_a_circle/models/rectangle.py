@@ -81,9 +81,8 @@ class Rectangle(Base):
 
     def __str__(self):
         """prints out a string representation of a Rectangle object"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
-                                                       self.width, self.height)
+        return f"[Rectangle] ({self.id}) {self.x}/{self.y} - {self.width}/{self.height}"
 
     def __del__(self):
         """destructor method for deleted objects"""
-        super().
+        super().__del__
