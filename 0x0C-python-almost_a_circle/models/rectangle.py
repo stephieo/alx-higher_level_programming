@@ -18,7 +18,7 @@ class Rectangle(Base):
         for input in (width, height, x, y):
             if type(input) is not int:
                 raise TypeError(f"{input} must be an integer")
-        
+
         for i in (width, height):
             if i <= 0:
                 raise ValueError(f"{i} must be > 0")
@@ -81,8 +81,9 @@ class Rectangle(Base):
 
     def __str__(self):
         """prints out a string representation of a Rectangle object"""
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y, self.width, self.height)
+        return "[Rectangle] ({}) {}/{} - {}/{}".format(self.id, self.x, self.y,
+                                                       self.width, self.height)
 
     def __del__(self):
         """destructor method for deleted objects"""
-        super().__del__
+        super().

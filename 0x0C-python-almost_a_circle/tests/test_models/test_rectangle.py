@@ -7,15 +7,51 @@ from models.rectangle import Rectangle
 
 class TestRectangleMethods(unittest.TestCase):
     """tests the simple methods area, display, __str__"""
+    def test_area(self):
+        """checks the output of area( with various inputs)"""
+        self.assertEqual(self.r2.area(), 20)
+        self.assertEqual(self.r3.area(), 36)
+        self.assertEqual(self.r4.area(), 60)
 
+    def test_display(self):
+        """checks that the visual of the rectangle matches its measurements"""
+        r2_output = "##\n##\n##\n##\n##\n##\n##\n##\n##\n##\n"
+        self.assertEqual(self.r2.display(), r2_output)
+
+        r4_output = "##############################\n##############################\n" 
+        self.assertEqual(self.r4.display(), r4_output)
 
 
 class TestRectangleInputvalidation(unittest.TestCase):
     """tests the input validation in creation of Rectangle object"""
-    """ - seperate tests for each  argument being invalid"""
+    def test_input_validation_type(self):
+        """check that each input (arguments 1 - 5) must be positive integers """
+        with self.assertRaises(TypeError):
+            temp = Rectangle("one", 2, 9, 3)
+        with self.assertRaises(TypeError):
+            temp = Rectangle(1, "2", 9, 5)
+        with self.assertRaises(TypeError):
+            temp = Rectangle(1, 2, "9", 5)
+        with self.assertRaises(TypeError):
+            temp = Rectangle(1, 2, 9, "5")
+
+    def test_input_validation_value(self):
+        with self.assertRaises(ValueError):
+            temp = Rectangle(-2, 4)
+        with self.assertRaises(ValueError):
+            temp = Rectangle(2, -4)
+        with self.assertRaises(ValueError):
+            temp = Rectangle(0, 5)
+        with self.assertRaises(ValueError):
+            temp = Rectangle(5, 0)
+        with self.assertRaises(ValueError):
+            temp = Rectangle(19, 4, -4, 8)
+        with self.assertRaises(ValueError):
+            temp = Rectangle(11, 7, 9, -3)
 
 class TestRectangleArgumentPrivacy(unittest.TestCase):
     """ testing the privacy, getters and setters of arguments"""
+
 class TestRectangleInstantiation(unittest.TestCase):
     """test case for instantiation of the `Rectangle` object"""
     """check:
@@ -69,30 +105,6 @@ class TestRectangleInstantiation(unittest.TestCase):
         self.assertEqual(Rectangle(2, 4, 18, 20, 68).id, 68)
         self.assertEqual(Rectangle(1, 2, 9, 10, 34).id, 34)
 
-    def test_input_validation_type(self):
-        """check that each input (arguments 1 - 5) must be positive integers """
-        with self.assertRaises(TypeError):
-            temp = Rectangle("one", 2, 9, 3)
-        with self.assertRaises(TypeError):
-            temp = Rectangle(1, "2", 9, 5)
-        with self.assertRaises(TypeError):
-            temp = Rectangle(1, 2, "9", 5)
-        with self.assertRaises(TypeError):
-            temp = Rectangle(1, 2, 9, "5")
-
-    def test_input_validation_value(self):
-        with self.assertRaises(ValueError):
-            temp = Rectangle(-2, 4)
-        with self.assertRaises(ValueError):
-            temp = Rectangle(2, -4)
-        with self.assertRaises(ValueError):
-            temp = Rectangle(0, 5)
-        with self.assertRaises(ValueError):
-            temp = Rectangle(5, 0)
-        with self.assertRaises(ValueError):
-            temp = Rectangle(19, 4, -4, 8)
-        with self.assertRaises(ValueError):
-            temp = Rectangle(11, 7, 9, -3)
 
     # def test_id_creation(self):
 
@@ -148,19 +160,7 @@ class TestRectangleInstantiation(unittest.TestCase):
         self.assertEqual(self.r4.y, 92)
 
           
-    def test_area(self):
-        """checks the output of area( with various inputs)"""
-        self.assertEqual(self.r2.area(), 20)
-        self.assertEqual(self.r3.area(), 36)
-        self.assertEqual(self.r4.area(), 60)
-
-    def test_display(self):
-        """checks that the visual of the rectangle matches its measurements"""
-        r2_output = "##\n##\n##\n##\n##\n##\n##\n##\n##\n##\n"
-        self.assertEqual(self.r2.display(), r2_output)
-
-        r4_output = "##############################\n##############################\n" 
-        self.assertEqual(self.r4.display(), r4_output)
+    
 
     @patch('builtins.print')
     def test_str_method(self, mock_output):
