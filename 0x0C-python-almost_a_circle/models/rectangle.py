@@ -106,7 +106,11 @@ class Rectangle(Base):
 
     def display(self):
         """prints out a visual of a rectangle object"""
+        for i in range(self.__y):
+            print()
         for x in range(self.__height):
+            for i in range(self.__x):
+                print(' ', end="")
             print(f"{'#' * self.__width}")
 
     def __str__(self):
