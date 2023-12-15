@@ -64,8 +64,8 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(output_of_str, C_str)
         mock_output.assert_called_with(self.C)
 
-    def test_update(self):
-        """test funtionality of update method"""
+    def test_update_args(self):
+        """test funtionality of update method using args only"""
         old_id = self.B.id
         self.B.update()
         self.assertEqual(self.B.id, old_id)
@@ -87,7 +87,18 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(self.D.x, 2)
         self.assertEqual(self.D.y, 4)
         
-
+    def test_update_kwargs(self):
+        """testing update method  with kwargs and args"""
+        self.C.update(id=39)
+        self.assertEqual(self.C.id, 39)
+        self.C.update(id=19, width=9)
+        self.assertEqual(self.C.width, 9)
+        self.C.update(id=39, width=3, height=2)
+        self.assertEqual(self.C.height, 2)
+        self.C.update(id=39, width=1, height=4, x=4)
+        self.assertEqual(self.C.x, 4)
+        self.C.update(id=39, width=8, height=17, x=9, y=6)
+        self.assertEqual(self.C.y, 6)
 
 class TestRectangleInputvalidation(unittest.TestCase):
     """tests the input validation in creation of Rectangle object"""
