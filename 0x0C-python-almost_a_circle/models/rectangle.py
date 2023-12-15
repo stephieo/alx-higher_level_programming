@@ -120,10 +120,10 @@ class Rectangle(Base):
             f"{self.x}/{self.y} - {self.width}/{self.height}"
         )
 
-    def update(self, *args):
+    def update(self, *args, **kwargs):
         """updates attributes of rectangle object"""
         i = 0
-        if len(args) != 0:
+        if args and len(args) != 0:
             for arg in args:
                 if i == 0:
                     self.id = arg
@@ -136,6 +136,9 @@ class Rectangle(Base):
                 if i == 4:
                     self.y = arg
                 i += 1
+        elif len(kwargs) != 0:
+            for key, value in kwargs.items():
+                setattr(self, key, value)
 
     def __del__(self):
         """destructor method for deleted objects"""
