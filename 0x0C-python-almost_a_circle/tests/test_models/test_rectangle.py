@@ -48,7 +48,6 @@ class TestRectangleMethods(unittest.TestCase):
         expected = "\n\n  ##\n  ##\n  ##\n"
         self.assertEqual(captured_output.getvalue(), expected)
 
-
     @patch('builtins.print')
     def test_str_method(self, mock_output):
         """checks that the output of `str()` matches the requirements"""
@@ -64,6 +63,31 @@ class TestRectangleMethods(unittest.TestCase):
         self.assertEqual(output_of_str, C_str)
         self.assertEqual(output_of_str, C_str)
         mock_output.assert_called_with(self.C)
+
+    def test_update(self):
+        """test funtionality of update method"""
+        old_id = self.B.id
+        self.B.update()
+        self.assertEqual(self.B.id, old_id)
+
+        self.B.update(77)
+        self.assertEqual(self.B.id, 77)
+
+        self.A.update(30, 5)
+        self.assertEqual(self.A.id, 30)
+        self.assertEqual(self.A.width, 5)
+
+        self.C.update(22, 4, 8)
+        self.assertEqual(self.C.id, 22)
+        self.assertEqual(self.C.width, 4)
+        self.assertEqual(self.C.height, 8)
+
+        self.D.update(21, 6, 4, 2, 4)
+        self.assertEqual(self.D.id, 21)
+        self.assertEqual(self.D.x, 2)
+        self.assertEqual(self.D.y, 4)
+        
+
 
 class TestRectangleInputvalidation(unittest.TestCase):
     """tests the input validation in creation of Rectangle object"""
