@@ -8,7 +8,7 @@ from io import StringIO
 import sys
 
 class TestRectangleMethods(unittest.TestCase):
-    """tests the simple methods area, display, __str__"""
+    """tests the  methods area, display, __str__ and update"""
 
     def setUp(self):
         """set up test objects for TestRectangleMethods"""
@@ -237,9 +237,6 @@ class TestRectangleInstantiation(unittest.TestCase):
         self.assertEqual(self.r4.y, 92)
 
           
-    
-
-    
 
     if __name__ == "__main__":
         unittest.main()
