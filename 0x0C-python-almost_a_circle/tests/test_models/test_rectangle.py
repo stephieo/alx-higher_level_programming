@@ -100,6 +100,19 @@ class TestRectangleMethods(unittest.TestCase):
         self.C.update(id=39, width=8, height=17, x=9, y=6)
         self.assertEqual(self.C.y, 6)
 
+class TestRectangleJsonMethods(unittest.TestCase):
+    """test the methods concerned with serialization and deserialization"""
+    def test_to_dictionary(self):
+        """checks that the dictionary format returned by `to_dictionary` 
+        contains 5 keys: id, width, height, x, y
+        """
+        try1 = Rectangle(4, 5, 9, 2, 23)
+        self.assertIn("x", try1.to_dictionary().keys())
+        self.assertIn("y", try1.to_dictionary().keys())
+        self.assertIn("width", try1.to_dictionary().keys())
+        self.assertIn("height", try1.to_dictionary().keys())
+        self.assertIn("id", try1.to_dictionary().keys())
+
 class TestRectangleInputvalidation(unittest.TestCase):
     """tests the input validation in creation of Rectangle object"""
     def test_input_validation_type(self):
