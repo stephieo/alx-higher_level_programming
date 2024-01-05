@@ -143,3 +143,18 @@ class TestSquareMethods(unittest.TestCase):
         self.assertEqual(self.D.id, 21)
         self.assertEqual(self.D.x, 4)
         self.assertEqual(self.D.y, 2)
+
+class TestSquareJsonMethods(unittest.TestCase):
+    """tests the `Square` methods concerned with serialization and deserialization"""
+
+    def test_to_dictionary(self):
+        """checks that the dictionary format returned by `to_dictionary` 
+        contains 4 keys: id, size, x, y
+        """
+        sq1 = Rectangle(4, 5, 9, 2, 23)
+        self.assertIn("x", sq1.to_dictionary().keys())
+        self.assertIn("y", sq1.to_dictionary().keys())
+        self.assertIn("width", sq1.to_dictionary().keys())
+        self.assertIn("height", sq1.to_dictionary().keys())
+        self.assertIn("id", sq1.to_dictionary().keys())
+

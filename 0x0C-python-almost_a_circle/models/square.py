@@ -52,3 +52,13 @@ class Square(Rectangle):
             f"[Square] ({self.id}) "
             f"{self.x}/{self.y} - {self.width}"
         )
+
+    def to_dictionary(self):
+        """returns the dictionary representation of a square"""
+
+        sq_dict = {
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
+        }
