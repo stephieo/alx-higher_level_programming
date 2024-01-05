@@ -12,9 +12,7 @@ class Square(Rectangle):
             x (int): location of rectangle on x axis
             y (int): location of rectangle on y axis
         """
-        # self.size = size
-        # self.x = x
-        # self.y = y
+
         super().__init__(size, size, x, y, id)
 
     @property

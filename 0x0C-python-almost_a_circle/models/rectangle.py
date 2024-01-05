@@ -155,4 +155,3 @@ class Rectangle(Base):
             "y": self.y
         }
         return rec_dictionary
-
