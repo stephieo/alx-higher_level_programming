@@ -1,0 +1,2 @@
+-- DISPLAYS MAX TEMPD IN EACH STATE IN ASCENDING ORDER
+SELECT state, MAX(value) as max_temp FROM temperatures GROUP BY state ORDER BY state ASC;
