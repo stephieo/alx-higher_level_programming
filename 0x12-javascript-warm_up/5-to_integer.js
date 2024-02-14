@@ -5,5 +5,5 @@ const converted = +inputNum;
 if (!converted) {
   console.log('Not a number');
 } else {
-  console.log(converted);
+  console.log(`My number: ${converted}`);
 }
