@@ -1,9 +1,10 @@
 #!/usr/bin/python3
-import MySQLdb
-from sys import argv
 """ This module displays the results of a basic SQL query"""
 
 if __name__ == "__main__":
+    import MySQLdb
+    from sys import argv
+
     MY_HOST = 'localhost'
     MY_USER = argv[1]
     MY_PASS = argv[2]
