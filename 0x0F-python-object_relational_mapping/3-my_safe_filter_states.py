@@ -1,10 +1,10 @@
 #!/usr/bin/python3
 """ this module executes an SQL command with python script,
     safe from SQL injections"""
-import MySQLdb
-from sys import argv
-
 if __name__ == "__main__":
+    import MySQLdb
+    from sys import argv
+
     MY_HOST = 'localhost'
     MY_USER = argv[1]
     MY_PASS = argv[2]
