@@ -53,7 +53,7 @@ class Thing(Base):
 
 
 
-#this create all the classes that inherit from Base  as tables in the database
+#this create all the classes that inherit from Base as tables in the database. seems its better to do this in a diff file7
 Base.metadata.create.all(bind=engine)
 
 #creating a session object and instance

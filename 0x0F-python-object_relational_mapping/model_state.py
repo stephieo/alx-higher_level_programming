@@ -4,8 +4,7 @@
 from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.orm import declarative_base, sessionmaker
 
-#create engine and connectto database
-engine = create_engine("mysql://root:pass@localhost")
+    
 #create base
 Base = declarative_base()
 
