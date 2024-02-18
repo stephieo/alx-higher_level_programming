@@ -9,21 +9,22 @@ if __name__ == "__main__":
     MY_PASS = argv[2]
     MY_DB = argv[3]
 
-    #creating a connection and cursor
-    conn = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS, db='hbtn_0e_0_usa')
+    # creating a connection and cursor
+    conn = MySQLdb.connect(host=MY_HOST, user=MY_USER,
+                           passwd=MY_PASS, db='hbtn_0e_0_usa')
     cur = conn.cursor()
 
-    #executing query
-    cur.execute(f"""SELECT * 
+    # executing query
+    cur.execute(f"""SELECT *
                     FROM states
                     ORDER BY states.id ASC;
                 """)
 
-    #display results
+    # display results
     rows = cur.fetchall()
     for row in rows:
         print(row)
-    
-    #cloding cursor and connection
+
+    # cloding cursor and connection
     cur.close()
     conn.close()

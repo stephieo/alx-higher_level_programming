@@ -9,12 +9,14 @@ if __name__ == "__main__":
     MY_DB = argv[3]
     STATE_NAME = argv[4]
 
-    conn = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS, db=MY_DB)
+    conn = MySQLdb.connect(host=MY_HOST, user=MY_USER,
+                           passwd=MY_PASS, db=MY_DB)
     cur = conn.cursor()
 
-    cur.execute(f""" SELECT * FROM states
-                    WHERE name = '{STATE_NAME}'
-                    ORDER BY states.id ASC;
+    cur.execute(f""" SELECT *
+                     FROM states
+                     WHERE name = '{STATE_NAME}'
+                     ORDER BY states.id ASC;
                 """)
 
     results = cur.fetchall()

@@ -8,8 +8,9 @@ if __name__ == "__main__":
     MY_PASS = argv[2]
     MY_DB = argv[3]
 
-    #creating a connection and cursor
-    conn = MySQLdb.connect(host=MY_HOST, user=MY_USER, passwd=MY_PASS, db=MY_DB)
+    # creating a connection and cursor
+    conn = MySQLdb.connect(host=MY_HOST, user=MY_USER,
+                           passwd=MY_PASS, db=MY_DB)
     cur = conn.cursor()
 
     cur.execute(f""" SELECT * FROM states
@@ -21,6 +22,6 @@ if __name__ == "__main__":
     for row in results:
         print(row)
 
-    #closing a connection and cursor    
+    # closing a connection and cursor
     cur.close()
     conn.close()
