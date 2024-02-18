@@ -12,7 +12,7 @@ if __name__ == "__main__":
     STATE_NAME = argv[4]
 
     conn = MySQLdb.connect(host=MY_HOST, user=MY_USER,
-                           passwd=MY_PASS, db=MY_DB)
+                           passwd=MY_PASS,  port=3306,db=MY_DB)
     cur = conn.cursor()
 
     cur.execute(f""" SELECT * FROM states WHERE name = %s
