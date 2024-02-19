@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-
-"""
-This module is a script 
+"""This module is a script 
 to query all State objects from a database
 """
 

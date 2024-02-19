@@ -12,7 +12,7 @@ if __name__ == "__main__":
 
     # creating a connection and cursor
     conn = MySQLdb.connect(host=MY_HOST, user=MY_USER,
-                           passwd=MY_PASS, port=3306, db='hbtn_0e_0_usa')
+                           passwd=MY_PASS, port=3306, db=argv[3])
     cur = conn.cursor()
 
     # executing query
