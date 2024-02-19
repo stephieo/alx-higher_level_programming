@@ -1,10 +1,11 @@
 #!/usr/bin/python3
 """ learinig sqlalchemy"""
-from sqlalchemy import create_engine, Column, String,Integer, Foreignkey, CHAR
+from sqlalchemy import create_engine, Column, String,Integer, ForeignKey, CHAR
 from sqlalchemy.orm import declarative_base, sessionmaker
+from sys import argv
 
 #creating the engine
-engine = create_engine("sqlite:///orm_db.db", echo=True)
+engine = create_engine(f"mysql+mysqldb:/deputy:{argv[1]}@localhost/orm_test.db", echo=True)
 
 #creating the baseclass for all table/classes in database
 Base = declarative_base()
@@ -23,7 +24,7 @@ class Person(Base):
     country = Colum("country", String)
 
     def __init__(self,id_no, firstname, lastname, age, gender, country):
-        self.id_no id_no
+        self.id_no =  id_no
         self.firstname = firstname
         self.lastname = lastname
         self.gender = gender
@@ -31,7 +32,7 @@ class Person(Base):
         self.country = country
 
     def __repr__(self):
-        return f"{self,firstname} {self.lastname}, ({self.gender}{self.age})"
+        return f"{self.firstname} {self.lastname}, ({self.gender}{self.age})"
 
 
 class Thing(Base):
@@ -54,7 +55,7 @@ class Thing(Base):
 
 
 #this create all the classes that inherit from Base as tables in the database. seems its better to do this in a diff file7
-Base.metadata.create.all(bind=engine)
+Base.metadata.create_all(bind=engine)
 
 #creating a session object and instance
 Session = sessionmaker(bind=engine)
@@ -82,18 +83,19 @@ session.add(t1)
 session.add(t2)
 session.add(t3)
 session.add(t4)
-session.commit() #this "makes changes permanent"
+
+session.commit() #this "makes changes permanent"; absolutely neccessary for create, update and delete
 
 
 
-#querying tables (best to do it in a diff file)
+#querying tables (best to do it in a diff file) Return value is always an object
 results = session.query(Person).all() #this is equivalent to SELECT * FROM persons 
 results2 = session.query(Person).filter(Person.lastname == "Fitts") #SELECT  * FROM persons WHERE lastname = "Fitts"
-results3 = session.query(Person).filter(Person.lastname.like(%Fi%))#...WHERE lastname LIKE  %Fi%
+# results3 = session.query(Person).filter(Person.lastname.like(%Fi%))#...WHERE lastname LIKE  %Fi%
 results4 = session.query(Person).filter(Person.lastnamein_(["Anna", "Bob"])) #... WHERE lastname in (?, ?)
 
 
 results5 = session.query(Thing).filter(Thing.owner == persion.id_no).filter(Person.firstname == "Anna") #... WHERE ... AND ...
-#the printed results will be in the format specified in the repr method
+#the printed results will be in the format specified in the repr method if not specified otherwise
 for r in results:
     print(r)
