@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-script to query all State objects
+This module is a script to query all State objects
 """
 from model_state import Base, State
 from sqlalchemy import create_engine
