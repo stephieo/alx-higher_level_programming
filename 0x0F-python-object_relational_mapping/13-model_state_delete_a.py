@@ -3,7 +3,7 @@
 delete results of Sqlalchemy query of database
 """
 
-from sys import argv 
+from sys import argv
 from model_state import Base, State
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
@@ -13,21 +13,21 @@ MY_PASS = argv[2]
 MY_DB = argv[3]
 if __name__ == "__main__":
     # create engine
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}".format(MY_USER, MY_PASS, MY_DB), pool_pre_ping=True)
-
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
+                           .format(MY_USER, MY_PASS, MY_DB),
+                           pool_pre_ping=True)
     # create session object and instance
     Session_factory = sessionmaker(bind=engine)
     session = Session_factory()
 
-    #query and display result
+    # query and display result
     result = session.query(State).filter(State.name.like("%a%")).all()
 
     for row in result:
         print("{}: {}".format(row.id, row.name))
 
-    #delete results of query
+    # delete results of query
     for row in result:
         delete(row)
-    
-    session.commit()
 
+    session.commit()

@@ -13,12 +13,13 @@ MY_DB = argv[3]
 
 if __name__ == "__main__":
     # create the engine
-    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}".format(MY_USER, MY_PASS, MY_DB), pool_pre_ping=True)
-
+    engine = create_engine("mysql+mysqldb://{}:{}@localhost/{}"
+                           .format(MY_USER, MY_PASS, MY_DB),
+                           pool_pre_ping=True)
     # create session object and instance
     Session = sessionmaker(bind=engine)
     session = Session()
-    
+
     # Query table
     result = session.query(State).order_by(State.id)
 
