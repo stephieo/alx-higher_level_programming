@@ -1,7 +1,5 @@
 #!/usr/bin/python3
-"""This module is a script 
-to query all State objects from a database
-"""
+"""This module is a script to query all State objects from a database"""
 
 from model_state import Base, State
 from sqlalchemy import create_engine
