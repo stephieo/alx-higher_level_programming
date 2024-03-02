@@ -9,9 +9,12 @@ if __name__ == "__main__":
     url = argv[1]
     email = argv[2]
 
+    # create dicionary of parameters and encode into bytes object
     params = {"email": email}
     querystring = parse.urlencode(params)
     querystring = querystring.encode('ascii')
+
+    # constructing url with parameters
     req = request.Request(url, data=querystring)
 
     with request.urlopen(req) as response:
