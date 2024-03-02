@@ -14,11 +14,6 @@ if __name__ == "__main__":
     querystring = querystring.encode('ascii')
     req = request.Request(url, data=querystring)
 
-
     with request.urlopen(req) as response:
         body = response.read()
         print(f"Your email is: {body.decode('UTF-8')}")
-
-
-
-
