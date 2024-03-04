@@ -13,11 +13,11 @@ if __name__ == "__main__":
                           data={"q": letter})
         # capture the json response as a dict
 
-        r_json = r.json()
         try:
+            r_json = r.json()
             if r_json == {}:
                 print("No result")
             else:
-                print(f"[{r.headers.get('id')}]  {r.headers.get('name')}")
+                print(f"[{r.get('id')}]  {r.['name']}")
         except requests.exceptions.JSONDecodeError:
             print("Not a valid JSON")
