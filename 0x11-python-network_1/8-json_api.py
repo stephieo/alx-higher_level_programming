@@ -18,6 +18,6 @@ if __name__ == "__main__":
             if r_json == {}:
                 print("No result")
             else:
-                print(f"[{r.headers.get('id')}] {r}")
-        except  requests.exceptions.JSONDecodeError:
+                print(f"[{r.headers.get('id')}]  {r.headers.get('name')}")
+        except requests.exceptions.JSONDecodeError:
             print("Not a valid JSON")
