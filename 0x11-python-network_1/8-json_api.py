@@ -8,9 +8,10 @@ if __name__ == "__main__":
         letter = ""
     else:
         letter = argv[1]
+        payload = {"q": letter}
 
         r = requests.post("http://0.0.0.0:5000/search_user",
-                          data={"q": letter})
+                          data=payload)
         # capture the json response as a dict
 
         try:
@@ -18,6 +19,6 @@ if __name__ == "__main__":
             if r_json == {}:
                 print("No result")
             else:
-                print(f"[{r.get('id')}]  {r.get('name')}")
+                print(f"[{r_json.get('id')}] {r_json.get('name')}")
         except requests.exceptions.JSONDecodeError:
             print("Not a valid JSON")
