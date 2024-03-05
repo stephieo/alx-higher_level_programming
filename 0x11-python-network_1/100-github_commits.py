@@ -13,9 +13,6 @@ if __name__ == "__main__":
 
     commit_json = req.json()
 
-    print(commit_json)
-    print(isinstance(commit_json, dict))
-
     for i in range(10):
         sha = commit_json[i].get('sha')
         name = commit_json[i]['commit']['author']['name']
