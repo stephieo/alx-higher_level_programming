@@ -8,15 +8,12 @@ if __name__ == "__main__":
     repo_name = argv[1]
     owner_name = argv[2]
 
-    req = requests.get("https://api.github.com/repos/{}/{}".format(
+    req = requests.get("https://api.github.com/repos/{}/{}/commits".format(
                        owner_name, repo_name), params={"per_page": 10})
 
     commit_json = req.json()
 
-    try:
-        for i in range(10):
-            sha = commit_json[i].get('sha')
-            name = commit_json[i]['commit']['author']['name']
-            print(f"{sha}: {name}")
-    except IndexError:
-        pass
+    for commit in commit_json:
+        sha = commit.get('sha')
+        name = commit['commit']['author']['name']
+        print(f"{sha}: {name}")
