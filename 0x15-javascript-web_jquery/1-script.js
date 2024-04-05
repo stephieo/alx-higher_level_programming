@@ -1,4 +1,3 @@
-#!/usr/bin/node
 // changes color of header tag using JQUERY API
 $(document).ready(function () {
   const myHeader = $('header');
